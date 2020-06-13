@@ -6,8 +6,9 @@ extends TileMap
 # var b = "text"
 var used_cells
 var building_cells = []
-var small_building = tile_set.find_tile_by_name("Small")
+var small_building = tile_set.find_tile_by_name("Block")
 var home_cell = tile_set.find_tile_by_name("Home")
+var road_tile = tile_set.find_tile_by_name("Road1")
 var selected_cell
 
 signal on_building_changed(money, residents, position)
@@ -17,8 +18,6 @@ func on_building_changed(money, residents, position, show):
 	emit_signal("on_building_changed", money, residents, position, show)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_building_nodes()
-	add_home()
 	pass # Replace with function body.
 
 
@@ -34,7 +33,6 @@ func create_2d_array(width, height, value):
 		for x in range(width):
 			building_cells[y][x] = value
 	return building_cells
-
 
 func add_buildings_in_array():
 	used_cells = get_used_cells()
@@ -55,7 +53,13 @@ func add_building_nodes():
 		building.money = 15
 		building.id = tile+1
 		building_cells.append(building)
-	print(building_cells)
+	print("BUILDING NR:", building_cells.size())
+
+func set_road(position):
+	return set_cellv(position, road_tile)
+	
+func set_building(position):
+	return set_cellv(position, small_building)
 
 func add_home():
 	pass
@@ -91,3 +95,8 @@ func _on_Menu_add_building():
 func _on_World_on_use_building():
 	if(get_building_node(selected_cell)):
 		get_building_node(selected_cell).use()
+
+
+func _on_World_on_map_generated():
+	add_building_nodes()
+	add_home()
