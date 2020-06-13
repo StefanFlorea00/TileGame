@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Building",
+"language": "GDScript",
+"path": "res://Script/Buildings/Building.gd"
+}, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://git_api.gdns"
+}, {
+"base": "Building",
+"class": "Home",
+"language": "GDScript",
+"path": "res://Script/Buildings/Home.gd"
+}, {
+"base": "Camera2D",
+"class": "MainCamera",
+"language": "GDScript",
+"path": "res://Script/Camera2D.gd"
+} ]
+_global_script_class_icons={
+"Building": "",
+"GitAPI": "",
+"Home": "",
+"MainCamera": ""
+}
+
+[application]
+
+config/name="PillsGame2"
+run/main_scene="res://Script/WorldSet.tscn"
+config/icon="res://icon.png"
+
+[gdnative]
+
+singletons=[ "res://git_api.gdnlib" ]
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

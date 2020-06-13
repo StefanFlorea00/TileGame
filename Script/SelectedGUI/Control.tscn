@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Script/SelectedGUI/Control.gd" type="Script" id=1]
+[ext_resource path="res://Script/SelectedGUI/Worldlabel.gd" type="Script" id=2]
+[ext_resource path="res://Script/SelectedGUI/Buildlabel.gd" type="Script" id=3]
+[ext_resource path="res://Script/SelectedGUI/Poslabel.gd" type="Script" id=4]
+[ext_resource path="res://Script/SelectedGUI/Selectedlabel.gd" type="Script" id=5]
+
+
+[node name="Control" type="Control"]
+anchor_right = 0.153
+anchor_bottom = 0.15
+margin_left = -1.0
+margin_right = 0.327988
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 159.0
+margin_bottom = 91.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 152.0
+margin_bottom = 84.0
+
+[node name="Poslabel" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 145.0
+margin_bottom = 14.0
+text = "Position: "
+script = ExtResource( 4 )
+
+[node name="Buildlabel" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 145.0
+margin_bottom = 32.0
+text = "Building:"
+script = ExtResource( 3 )
+
+[node name="Worldlabel" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 145.0
+margin_bottom = 50.0
+text = "WorldTile: "
+script = ExtResource( 2 )
+
+[node name="Selectedlabel" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 145.0
+margin_bottom = 68.0
+text = "Selected:"
+script = ExtResource( 5 )
+[connection signal="on_building_changed" from="." to="PanelContainer/VBoxContainer/Buildlabel" method="_on_Control_on_building_changed"]
+[connection signal="on_pos_changed" from="." to="PanelContainer/VBoxContainer/Poslabel" method="_on_Control_on_pos_changed"]
+[connection signal="on_selected_changed" from="." to="PanelContainer/VBoxContainer/Selectedlabel" method="_on_Control_on_selected_changed"]
+[connection signal="on_world_changed" from="." to="PanelContainer/VBoxContainer/Worldlabel" method="_on_Control_on_world_changed"]

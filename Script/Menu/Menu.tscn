@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Script/Menu/Menu.gd" type="Script" id=1]
+
+[node name="Menu" type="Control"]
+anchor_right = 0.267
+anchor_bottom = 0.115
+margin_right = -0.40802
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 0.698341
+margin_right = 272.698
+margin_bottom = 67.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 265.0
+margin_bottom = 60.0
+
+[node name="ControlAdd" type="Control" parent="PanelContainer/Control"]
+margin_right = 56.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonAdd" type="Button" parent="PanelContainer/Control/ControlAdd"]
+margin_right = 56.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PanelContainer/Control/ControlAdd"]
+margin_left = 16.0
+margin_top = 15.0
+margin_right = 43.0
+margin_bottom = 29.0
+text = "Add"
+
+[node name="ControlDelete" type="Control" parent="PanelContainer/Control"]
+margin_left = 66.0
+margin_right = 124.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonDelete" type="Button" parent="PanelContainer/Control/ControlDelete"]
+margin_right = 56.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="PanelContainer/Control/ControlDelete"]
+margin_left = 7.35791
+margin_top = 15.0
+margin_right = 50.3579
+margin_bottom = 29.0
+text = "Delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlUse" type="Control" parent="PanelContainer/Control"]
+margin_left = 132.0
+margin_right = 189.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonUse" type="Button" parent="PanelContainer/Control/ControlUse"]
+margin_right = 56.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="PanelContainer/Control/ControlUse"]
+margin_left = 14.8477
+margin_top = 15.0
+margin_right = 41.8477
+margin_bottom = 29.0
+text = "Use"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlUse2" type="Control" parent="PanelContainer/Control"]
+margin_left = 200.0
+margin_right = 257.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonUse2" type="Button" parent="PanelContainer/Control/ControlUse2"]
+margin_right = 56.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="PanelContainer/Control/ControlUse2"]
+margin_left = 11.7339
+margin_top = 15.0
+margin_right = 44.7339
+margin_bottom = 29.0
+text = "Use2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="PanelContainer/Control/ControlAdd/ButtonAdd" to="." method="_on_ButtonAdd_button_up"]
+[connection signal="button_up" from="PanelContainer/Control/ControlDelete/ButtonDelete" to="." method="_on_ButtonDelete_button_up"]
+[connection signal="button_up" from="PanelContainer/Control/ControlUse/ButtonUse" to="." method="_on_ButtonUse_button_up"]
+[connection signal="button_up" from="PanelContainer/Control/ControlUse2/ButtonUse2" to="." method="_on_ButtonUse2_button_up"]
